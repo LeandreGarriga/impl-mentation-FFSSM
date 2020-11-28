@@ -16,11 +16,14 @@ public class Club {
     public String adresse;
 
     public String telephone;
+    
+    public HashSet<Plongee> plongee = new HashSet<>();
 
     public Club(Moniteur président, String nom, String telephone) {
         this.president = président;
         this.nom = nom;
         this.telephone = telephone;
+        
     }
 
     /**
@@ -40,7 +43,8 @@ public class Club {
      */
     public void organisePlongee(Plongee p) {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         plongee.add(p);
+        //throw new UnsupportedOperationException("Pas encore implémenté");
     }
     
     

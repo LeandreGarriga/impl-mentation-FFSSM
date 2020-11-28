@@ -5,6 +5,7 @@ package FFSSM;
 
 import java.time.LocalDate;
 
+
 public class Licence {
 
     public Personne possesseur;
@@ -46,7 +47,13 @@ public class Licence {
      **/
     public boolean estValide(LocalDate d) {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         if(d.compareTo(delivrance.plusYears(1)) > 0){
+             return false;
+         }
+         else{
+             return true;
+         }
+        //throw new UnsupportedOperationException("Pas encore implémenté");
     }
 
 }
