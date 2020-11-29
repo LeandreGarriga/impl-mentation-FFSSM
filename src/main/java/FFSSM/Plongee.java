@@ -50,7 +50,7 @@ public class Plongee {
 	public boolean estConforme() {
             // TODO: Implémenter cette méthode
             for (Plongeur i : participants) {
-                participants.contains();
+                //participants.contains();
                 System.out.println(i);
             }
 		throw new UnsupportedOperationException("Pas encore implémenté");
