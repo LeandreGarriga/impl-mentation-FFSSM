@@ -49,11 +49,15 @@ public class Plongee {
 	 */
 	public boolean estConforme() {
             // TODO: Implémenter cette méthode
-            for (Plongeur i : participants) {
-                //participants.contains();
-                System.out.println(i);
-            }
-		throw new UnsupportedOperationException("Pas encore implémenté");
+            //for (Plongeur i : participants) {
+            //    if(participants.estValide()==false){
+            //        return false;
+            //    }
+            //   else {
+            //      return true;
+            //  }
+            //}
+	throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
 }

@@ -19,10 +19,11 @@ public class Club {
     
     public HashSet<Plongee> plongee = new HashSet<>();
 
-    public Club(Moniteur président, String nom, String telephone) {
+    public Club(Moniteur président, String nom, String telephone, String adresse) {
         this.president = président;
         this.nom = nom;
         this.telephone = telephone;
+        this.adresse=adresse;
         
     }
 
