@@ -33,17 +33,25 @@ public class FFSSMJUnitTest {
     
     private Personne personne1;
     private Personne personne2;
+    
     private Plongeur plongeur1;
     private Plongeur plongeur2;
+    
     private Moniteur m1;
     private Moniteur m2;
+    
     private Club c1;
+    
     private Site s1;
+    
     private Plongee p;
+    
     private LocalDate date;
     
     private Licence l1;
     private Licence l2;
+    
+    private Embauche emb1;
     
     @BeforeEach
     public void setUp() {
@@ -69,6 +77,8 @@ public class FFSSMJUnitTest {
         
         l1= new Licence(personne1, "01",LocalDate.of(2019,03,29),c1);
         l2= new Licence(personne2,"02",LocalDate.of(2019,12,13),c1);
+        
+        emb1 = new Embauche(date,m1,c1);
         
     }
     
@@ -223,4 +233,51 @@ public class FFSSMJUnitTest {
         c1.organisePlongee(p);
         assertTrue(c1.plongee.contains(p));
     }
+    
+    //-------------------------------------------------------------------------
+    
+    @Test
+    public void testPlongeeAjouteParticipant(){
+        p.ajouteParticipant(plongeur1);
+        assertTrue(p.participants.contains(plongeur1));
+    }
+    
+    @Test
+    public void testPlongeeGetDate(){
+        assertEquals(LocalDate.of(2020,11,25),p.getDate());
+    }
+    
+    //-------------------------------------------------------------------------
+    
+    @Test
+    public void testSiteGetNomDetails(){
+        assertEquals("Palavas-les-flots",s1.getNom());
+        assertEquals("Profondeur",s1.getDetails());
+    }
+    
+    @Test
+    public void testSiteSetNomDetails(){
+        s1.setNom("Sète");
+        s1.setDetails("Exploration");
+        assertEquals("Sète",s1.nom);
+        assertEquals("Exploration",s1.details);
+    }
+    
+    //-------------------------------------------------------------------------
+    
+    @Test
+    public void testEmbaucheEstTerminée(){
+        assertFalse(emb1.estTerminee());
+        emb1.setFin(date);
+        assertTrue(emb1.estTerminee());
+    }
+    
+   @Test
+   public void testEmbaucheGetEmployeurEmployeFinDebut(){
+       assertEquals(c1,emb1.getEmployeur());
+       assertEquals(m1,emb1.getEmploye());
+       assertEquals(date,emb1.getDebut());
+       emb1.setFin(LocalDate.of(2017, 05, 13));
+       assertEquals(LocalDate.of(2017, 05, 13),emb1.getFin());
+   }
 }
